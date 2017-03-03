@@ -1,4 +1,11 @@
-angular.module("UsersApp", []).controller("UsersCtrl", function ($scope) {
-    $scope.hello = "Hello Dranie";
-});
+angular.module("SdaApp", []).controller("PhrasesCtrl", function ($scope, $http) {
 
+    $http.get("https://jsonplaceholder.typicode.com/users").then(function (response) {
+
+        $scope.users = response.data;
+    });
+
+
+    $scope.showUsers = true;
+
+});

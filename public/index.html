@@ -11,9 +11,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
           integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 </head>
-<body ng-app="UsersApp">
-<div class="container" ng-controller="UsersCtrl">
+<body ng-app="SdaApp">
+<div class="container" ng-controller="PhrasesCtrl">
     <h1 ng-bind="hello"></h1>
+    <div>
+        <input placeholder="Search phrases"  ng-model="query">
+        <button ng-click="search($index)" class="btn btn-info btn-md">Search</button>
+        <p ng-repeat="user in users | filter:query">
+            <span ng-bind="user.id"></span>
+            <span ng-bind="user.name"></span>
+        </p>
+    </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
 <script src="app.js"></script>
