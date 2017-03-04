@@ -15,23 +15,25 @@ angular.module("SdaApp", ['ui.router'])
 
         };
 
-    }).controller("DetailsCtrl", function ($scope, $stateParams) {
-
-    $scope.id = $stateParams.id;
-
-}).config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/queries');
-    $stateProvider
-        .state({
-            name: "query",
-            url: "/queries",
-            controller: "QueriesCtrl",
-            templateUrl: "templates/query.html"
-        }).state({
-            name: "queryDetails",
-            url: "/queries/:id",
-            controller: "DetailsCtrl",
-            templateUrl: "templates/details.html"
-        }
-    )
-});
+    })
+    .controller("DetailsCtrl", function ($scope, $stateParams, $http) {
+        $http.get("https://sda24backend.herokuapp.com/queries/17").then(function (response) {
+            $scope.query = response.data
+        });
+    })
+    .config(function ($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise('/queries');
+        $stateProvider
+            .state({
+                name: "query",
+                url: "/queries",
+                controller: "QueriesCtrl",
+                templateUrl: "templates/query.html"
+            }).state({
+                name: "queryDetails",
+                url: "/queries/:id",
+                controller: "DetailsCtrl",
+                templateUrl: "templates/details.html"
+            }
+        )
+    });

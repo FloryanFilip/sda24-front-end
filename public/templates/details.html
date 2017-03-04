@@ -1,3 +1,8 @@
-<div>
-{{id}}
+<div class="text-center">
+<pre>
+    <strong>Query: {{query.query | json}}</strong>
+    Id: {{query.id | json}}
+    Context, url: {{query.context | json}}
+    UserList: {{query.userList | json}}
+</pre>
 </div>
