@@ -1,8 +1,9 @@
-angular.module("SdaApp", []).controller("PhrasesCtrl", function ($scope) {
+angular.module("SdaApp", []).controller("PhrasesCtrl", function ($scope, $http) {
 
     $scope.search = function() {
-        alert($scope.query);
+        $http.post("https://sda24backend.herokuapp.com/", {query: $scope.query});
 
+        alert($scope.query);
     };
 
 });
