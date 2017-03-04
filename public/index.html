@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE >
 <html>
 <head>
     <meta charset="utf-8">
@@ -37,7 +37,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini" ng-app="SdaApp">
 <div class="wrapper">
 
     <header class="main-header">
@@ -81,7 +81,9 @@
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper" ng-controller="PhrasesCtrl">
+        <input placeholder="Search phrases"  ng-model="query">
+        <button ng-click="search()" class="btn btn-info btn-md">Search</button>
 
     </div>
     <!-- /.content-wrapper -->
@@ -129,5 +131,8 @@
 <script src="assets/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="assets/js/demo.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

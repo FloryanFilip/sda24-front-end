@@ -1,11 +1,8 @@
-angular.module("SdaApp", []).controller("PhrasesCtrl", function ($scope, $http) {
+angular.module("SdaApp", []).controller("PhrasesCtrl", function ($scope) {
 
-    $http.get("https://jsonplaceholder.typicode.com/users").then(function (response) {
+    $scope.search = function() {
+        alert($scope.query);
 
-        $scope.users = response.data;
-    });
-
-
-    $scope.showUsers = true;
+    };
 
 });
