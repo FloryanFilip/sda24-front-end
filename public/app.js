@@ -15,10 +15,11 @@ angular.module("SdaApp", ['ui.router'])
 
         };
 
-    }).controller("DetailsCtrl", function ($scope, $stateParams) {
+    }).controller("DetailsCtrl", function ($scope, $stateParams, $http) {
 
-    $scope.id = $stateParams.id;
-
+    $http.get("https://sda24backend.herokuapp.com/queries/" + $stateParams.id).then(function (response) {
+        $scope.query = response.data;
+    });
 }).config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/queries');
     $stateProvider
