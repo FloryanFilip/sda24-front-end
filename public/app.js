@@ -1,26 +1,36 @@
-angular.module("SdaApp", ['ui.router']).controller("PhrasesCtrl", function ($scope, $http) {
-    $http.get("https://jsonplaceholder.typicode.com/users").then(function (response) {
-        $scope.queries = response.data;
+angular.module("SdaApp", ['ui.router'])
+    .controller("QueriesCtrl", function ($scope, $http) {
+        get();
 
-    });
-    //$scope.queries= ["quwey1", "testr", "other"];
-    $scope.search = function () {
-        $http.post("https://sda24backend.herokuapp.com/", {query: $scope.query});
-        //$scope.message = $scope.query;
+        function get() {
+            $http.get("https://sda24backend.herokuapp.com/queries").then(function (response) {
+                $scope.queries = response.data;
+            });
+        }
 
-        alert($scope.query);
-    };
+        $scope.search = function () {
+            $http.post("https://sda24backend.herokuapp.com/queries", {query: $scope.query}).then(function () {
+                get();
+            });
+
+        };
+
+    }).controller("DetailsCtrl", function ($scope, $stateParams) {
+
+    $scope.id = $stateParams.id;
 
 }).config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/queries');
     $stateProvider
         .state({
             name: "query",
-            url: "/",
+            url: "/queries",
+            controller: "QueriesCtrl",
             templateUrl: "templates/query.html"
         }).state({
-            name: "details",
-            url: "/details",
+            name: "queryDetails",
+            url: "/queries/:id",
+            controller: "DetailsCtrl",
             templateUrl: "templates/details.html"
         }
     )
