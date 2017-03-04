@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-offset-3 col-md-6">
+        <div class="serach-input">
+            <input size="88" placeholder="Search phrases" ng-model="query">
+            <button ng-click="search()" class="btn btn-info btn-md">Search</button>
+        </div>
+
+
+            <div class="info-box bg-green" ng-repeat="query in queries">
+                <span class="info-box-icon"><i class="ion ion-ios-heart-outline"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text" ng-bind="query.query"></span>
+                    <span class="info-box-number" ng-bind="query.id"></span>
+
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 20%"></div>
+                    </div>
+                    <span class="progress-description">
+                    <button ui-sref="queryDetails({id: query.id})" class="btn btn-success btn-xs">Details</button>
+                  </span>
+                </div>
+            </div>
+
+
+    </div>
+</div>
