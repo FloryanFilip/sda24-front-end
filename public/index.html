@@ -73,7 +73,7 @@
             <ul class="sidebar-menu">
                 <li class="header">MAIN NAVIGATION</li>
                 <li>
-                    <a><i class="fa fa-book"></i> <span>Query</span></a>
+                    <a ui-sref="query"><i class="fa fa-book"></i> <span>Query</span></a>
                 </li>
             </ul>
         </section>
@@ -81,37 +81,8 @@
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" ng-controller="PhrasesCtrl">
-        <div class="col-md-3">
+    <div class="content-wrapper" ui-view>
 
-        </div>
-
-        <div class="col-md-6">
-            <div class="serach-input">
-
-                <input size="88" placeholder="Search phrases" ng-model="query">
-                <button ng-click="search()" class="btn btn-info btn-md">Search</button>
-            </div>
-            <div ng-repeat="query in queries">
-
-                <div class="info-box bg-green">
-                    <span class="info-box-icon"><i class="ion ion-ios-heart-outline"></i></span>
-
-                    <div class="info-box-content">
-                        <span class="info-box-text">{{query}}</span>
-                        <span class="info-box-number">1</span>
-
-                        <div class="progress">
-                            <div class="progress-bar" style="width: 20%"></div>
-                        </div>
-                        <span class="progress-description">
-                    20% Increase in 30 Days
-                  </span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
@@ -144,9 +115,7 @@
 <script src="assets/js/jquery.knob.js"></script>
 <!-- daterangepicker -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<script src="plugins/daterangepicker/daterangepicker.js"></script>
 <!-- datepicker -->
-<script src="assets/js/bootstrap-datepicker.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src="assets/js/bootstrap3-wysihtml5.all.min.js"></script>
 <!-- Slimscroll -->
@@ -156,11 +125,11 @@
 <!-- AdminLTE App -->
 <script src="assets/js/app.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="assets/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="assets/js/demo.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
